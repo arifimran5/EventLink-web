@@ -1,0 +1,55 @@
+<ng-container *ngIf="event; else noEvent">
+  <section>
+    <h1 class="text-3xl font-semibold">{{ event.name }}</h1>
+    <div class="space-x-8">
+      <span *ngIf="isHost" class="font-semibold text-green-500">Host</span>
+      <i *ngIf="!isHost" class="text-gray-600">By - {{ event.hostname }}</i>
+      <i class="text-gray-600">On - {{ event.date | date }}</i>
+    </div>
+    <p class="text-lg text-gray-600">{{ event.description }}</p>
+
+    @if(!isHost){ @if(!(isAttending$ | async)){
+    <button
+      (click)="handleAttend()"
+      class="py-1 px-4 border-[1px] shadow-sm hover:bg-gradient-to-t rounded-md border-cyan-600 bg-gradient-to-b from-cyan-500 to-cyan-600"
+    >
+      Join
+    </button>
+    } @else {
+    <button
+      (click)="handleCancelAttend()"
+      class="py-1 px-4 border-[1px] shadow-sm hover:bg-gradient-to-t rounded-md border-red-600 bg-gradient-to-b from-red-500 to-red-600"
+    >
+      Cancel
+    </button>
+    } }
+
+    <section class="mt-8">
+      <h1 class="text-2xl font-medium">All Attendees</h1>
+      <div class="grid grid-cols-1 gap-3 mt-3 sm:grid-cols-2">
+        @for (u of attendees; track $index) {
+        <div
+          class="flex flex-col p-2 rounded-md shadow-sm ring-1 ring-gray-300"
+        >
+          <h3 class="text-lg">&#64;{{ u.userName }}</h3>
+          <p class="text-gray-500" *ngIf="u.email">Email : {{ u.email }}</p>
+          <button
+            class="px-2 py-1 mt-2 text-sm bg-red-500 rounded-md w-max"
+            *ngIf="isHost"
+            (click)="handleCancelAttend()"
+          >
+            Remove
+          </button>
+        </div>
+        }
+      </div>
+    </section>
+  </section>
+</ng-container>
+
+<ng-template #noEvent>
+  <section>
+    <h1>No such event!!</h1>
+    <a routerLink="/home">Go back</a>
+  </section>
+</ng-template>

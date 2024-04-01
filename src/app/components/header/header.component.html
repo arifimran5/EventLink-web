@@ -1,0 +1,25 @@
+<header class="container py-4">
+  @if (!currentUser) {
+  <nav class="flex items-center justify-between">
+    <h1 routerLink="/home" class="px-2 text-2xl -skew-x-6 bg-red-400">
+      Eventlink
+    </h1>
+    <div class="space-x-2">
+      <button
+        routerLink="/login"
+        class="py-1 px-4 shadow-sm hover:bg-gradient-to-t text-gray-50 border-[1px] rounded-md border-gray-600 bg-gradient-to-b from-gray-500 to-gray-600"
+      >
+        Log In
+      </button>
+      <button
+        routerLink="/signup"
+        class="py-1 px-4 border-[1px] shadow-sm hover:bg-gradient-to-t rounded-md border-cyan-600 bg-gradient-to-b from-cyan-500 to-cyan-600"
+      >
+        Sign Up
+      </button>
+    </div>
+  </nav>
+  }@else {
+  <app-userheader [user]="currentUser"></app-userheader>
+  }
+</header>
