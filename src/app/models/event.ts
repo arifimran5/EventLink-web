@@ -3,9 +3,17 @@ export type Event = {
   name: string;
   description: string;
   link: string;
-  imgUrl: string | null;
+  image: string;
   date: string;
   hostId: number;
   hostname: string;
   createdAt: string;
+};
+
+export type CreateEvent = {
+  name: string;
+  description: string;
+  link: string;
+  image: string;
+  date: string;
 };

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Event } from '../models/event';
+import { CreateEvent, Event } from '../models/event';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -17,6 +17,10 @@ export class EventsService {
 
   getEventById(id: number) {
     return this.http.get<Event>(`${this.baseURL}/${id}`);
+  }
+
+  createEvent(event: any) {
+    return this.http.post(this.baseURL, event);
   }
 
   updateEvent(id: number, event: Omit<Event, 'id' | 'hostId'>) {

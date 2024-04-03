@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { EventComponent } from './pages/event/event.component';
 import { authGuard } from './guards/auth.guard';
+import { AddEventComponent } from './pages/add-event/add-event.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'event/:id',
     component: EventComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'addEvent',
+    component: AddEventComponent,
     canActivate: [authGuard],
   },
 ];

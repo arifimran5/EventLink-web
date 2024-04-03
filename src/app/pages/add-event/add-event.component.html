@@ -1,0 +1,53 @@
+<form
+  (ngSubmit)="handleSubmit()"
+  class="max-w-[40rem] mt-6 mx-auto flex flex-col gap-2"
+>
+  <div class="flex flex-col gap-2">
+    <label for="name">Name</label>
+    <input
+      class="p-2 border-2 rounded-md"
+      type="text"
+      id="name"
+      [(ngModel)]="createEventData.name"
+      name="name"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="description">Description</label>
+    <input
+      class="p-2 border-2 rounded-md"
+      type="text"
+      id="description"
+      [(ngModel)]="createEventData.description"
+      name="description"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="date">Event Date</label>
+    <input
+      class="p-2 border-2 rounded-md"
+      type="datetime-local"
+      [(ngModel)]="createEventData.date"
+      id="date"
+      name="date"
+    />
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="image">Display Image</label>
+    <input
+      class="p-2 border-2 rounded-md"
+      type="file"
+      id="image"
+      name="image"
+      (change)="addImage($event)"
+    />
+  </div>
+  <div class="flex mt-2">
+    <button
+      class="py-2 w-full px-4 border-[1px] shadow-sm hover:bg-gradient-to-t text-gray-50 rounded-md border-gray-600 bg-gradient-to-b from-gray-500 to-gray-600"
+      type="submit"
+    >
+      Add
+    </button>
+  </div>
+</form>

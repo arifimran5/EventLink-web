@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { EventComponent } from './pages/event/event.component';
+import { AddEventComponent } from './pages/add-event/add-event.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EventComponent } from './pages/event/event.component';
     RegisterComponent,
     UserheaderComponent,
     EventComponent,
+    AddEventComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
