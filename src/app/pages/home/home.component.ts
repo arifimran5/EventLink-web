@@ -13,7 +13,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.eventsService.getAllEvents().subscribe((val) => {
-      this.events = val;
+      this.events = val.map((v) => {
+        return { ...v, image: `https://localhost:7118/assets/${v.image}` };
+      });
     });
   }
 }

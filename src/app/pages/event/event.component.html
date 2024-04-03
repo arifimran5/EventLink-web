@@ -1,5 +1,10 @@
 <ng-container *ngIf="event; else noEvent">
   <section>
+    <img
+      class="max-w-full w-[400px]"
+      src="https://localhost:7118/assets/{{ event.image }}"
+      alt=""
+    />
     <h1 class="text-3xl font-semibold">{{ event.name }}</h1>
     <div class="space-x-8">
       <span *ngIf="isHost" class="font-semibold text-green-500">Host</span>
